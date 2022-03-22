@@ -2,19 +2,28 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"time"
 )
 
 func main(){
 
+	rand.Seed(time.Now().Unix())
+
 	sorter := Sorter{}
-	sorter.Values = []int{345,2,756,723,34,12,45,67,678,567,234,894,904,324,4536,456}
-	fmt.Printf("Length: %d Unsorted Values: %v\n", len(sorter.Values), sorter.Values)
+	sorter.Values = rand.Perm(10000) // change number to see the difference in speed between the sorting algorithm
+	fmt.Printf("Length: %d Unsorted Values: %v\n\n", len(sorter.Values), sorter.Values)
 
 
 	selectionSortedValues := sorter.Selection()
-	fmt.Printf("Selection Sort = Elapsed Time: %s Length: %d Sorted Values: %v\n", sorter.ElapsedTime, len(selectionSortedValues), selectionSortedValues)
+	fmt.Printf("Selection Sort = Elapsed Time: %s Length: %d\n", sorter.ElapsedTime, len(selectionSortedValues))
+	// Uncomment below to also print sorted values
+	// fmt.Printf("Sorted Values: %v\n\n", selectionSortedValues)
+	
 	insertionSortedValues := sorter.Insertion()
-	fmt.Printf("Insertion Sort = Elapsed Time: %s Length: %d Sorted Values: %v\n", sorter.ElapsedTime, len(insertionSortedValues), insertionSortedValues)
+	fmt.Printf("Insertion Sort = Elapsed Time: %s Length: %d\n", sorter.ElapsedTime, len(insertionSortedValues))
+	// Uncomment below to also print sorted values
+	// fmt.Printf("Sorted Values: %v\n\n", insertionSortedValues)
 
 
 }
