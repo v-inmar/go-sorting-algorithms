@@ -1,12 +1,18 @@
 package main
 
+import (
+	"fmt"
+	"time"
+)
+
 func selection(s []int) []int{
 	// create a new slice same length as argument s
-	t := make([]int, len(s))
-
 	// copy the s slice into t slice
 	// :this is to make sure that GC cleans up s slice
+	t := make([]int, len(s))
 	copy(t, s)
+
+	start := time.Now()
 
 	// Loop through the slice
 	for i := 0; i < len(t); i++{
@@ -27,5 +33,7 @@ func selection(s []int) []int{
 		t[i], t[minIndex] = t[minIndex], t[i]
 	}
 
+	elapsed := time.Since(start)
+	fmt.Printf("Sort time: %s\n", elapsed)
 	return t
 }
