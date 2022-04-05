@@ -78,3 +78,42 @@ func (s *Sorter)Insertion()[]int{
 	s.ElapsedTime = time.Since(start)
 	return t
 }
+
+
+func (s *Sorter)Bubble()[]int{
+	// Make a copy of the Values slice
+	// so we can preserved it for other sorting algorithm
+	t := make([]int, len(s.Values))
+	copy(t, s.Values)
+
+	// start timer
+	start := time.Now()
+	for{
+		swapped := false
+		for k := range t {
+
+			// Last element
+			// This is to make sure index won't go out of bounds
+			if k == len(t)-1{
+				break
+			}
+
+			// Compare and swap if needed
+			if t[k] > t[k+1]{
+				t[k], t[k+1] = t[k+1], t[k]
+				swapped = true // Indicates that another pass is needed
+			}
+
+		}
+
+		// Nothing had been swapped (it is sorted). So exit out of loop
+		if !swapped{
+			break
+		}
+	}
+	
+
+	// get the elapsed time
+	s.ElapsedTime = time.Since(start)
+	return t
+}

@@ -4,6 +4,6 @@ Simple implementations of different sorting algorithms written in Go programming
 
 - [x] **Selection Sort**
 - [x] **Insertion Sort**
-- [ ] **Bubble Sort**
+- [x] **Bubble Sort**
 - [ ] **Merge Sort**
 - [ ] **Quick Sort**

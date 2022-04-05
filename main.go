@@ -11,7 +11,7 @@ func main(){
 	rand.Seed(time.Now().Unix())
 
 	sorter := Sorter{}
-	sorter.Values = rand.Perm(10000) // change number to see the difference in speed between the sorting algorithm
+	sorter.Values = rand.Perm(100) // change number to see the difference in speed between the sorting algorithm
 	fmt.Printf("Length: %d Unsorted Values: %v\n\n", len(sorter.Values), sorter.Values)
 
 
@@ -24,6 +24,12 @@ func main(){
 	fmt.Printf("Insertion Sort = Elapsed Time: %s Length: %d\n", sorter.ElapsedTime, len(insertionSortedValues))
 	// Uncomment below to also print sorted values
 	// fmt.Printf("Sorted Values: %v\n\n", insertionSortedValues)
+
+
+	bubbleSortedValues := sorter.Bubble()
+	fmt.Printf("Bubble Sort = Elapsed Time: %s Length: %d\n", sorter.ElapsedTime, len(bubbleSortedValues))
+	// Uncomment below to also print sorted values
+	// fmt.Printf("Sorted Values: %v\n\n", bubbleSortedValues)
 
 
 }
